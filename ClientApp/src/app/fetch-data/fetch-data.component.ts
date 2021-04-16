@@ -37,7 +37,10 @@ export class FetchDataComponent implements OnInit {
     this.articles = this.articlesToSearch;
 
     if (searchString) {
-      this.articles = this.articles.filter(article => article.title.toLocaleLowerCase().includes(searchString.toLowerCase()));
+      this.articles = this.articles.filter(article =>
+        article.title.toLocaleLowerCase().includes(searchString.toLowerCase())
+        || article.by.toLocaleLowerCase().includes(searchString.toLowerCase())
+      );
     }
   }
 }
